@@ -2,7 +2,7 @@ function [  ] = handle_result( experiment_num )
     Initialization();
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% debug %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    total_repeat_num=2;begin_num=10;end_num=11;count=zeros(end_num*10,(end_num-begin_num+1)*total_repeat_num); 
+%     total_repeat_num=2;begin_num=10;end_num=11;count=zeros(end_num*10,(end_num-begin_num+1)*total_repeat_num); 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% debug %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
     repeat_num=total_repeat_num;
     file_name=sprintf('%s%s',input_file_dir,'X_test.mat');
@@ -23,10 +23,6 @@ function [  ] = handle_result( experiment_num )
     %%%%%%%%%%%%%%%%%
     file_name=sprintf('%s%s',output_file_dir,'W_LCM.mat');
     load(file_name);
-    %%%%%%%%%%%%%%%%%%%%
-    % file_name=sprintf('%s%s',output_file_dir,'Model_LCM.mat');
-    % Model_LCM=load(file_name);
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     [n d]=size(X_test);
     X_test(:,d+1)=ones(n,1);
@@ -148,10 +144,8 @@ function [  ] = handle_result( experiment_num )
         acc_PC(i)=mean(Result_PC( (i-1)*repeat_num+1:i*repeat_num));
         acc_MV(i)=mean(Result_MV( (i-1)*repeat_num+1:i*repeat_num));
         acc_M3V(i)=mean(Result_M3V( (i-1)*repeat_num+1:i*repeat_num));
-        acc_YAN(i)=mean(Result_YAN( (i-1)*repeat_num+1:i*repeat_num));
-    %     LCM(i)=mean(Result_LCM( (i-1)*repeat_num+1:i*repeat_num));
+        acc_YAN(i)=mean(Result_YAN( (i-1)*repeat_num+1:i*repeat_num));   
         acc_Soft_LCM(i)=mean( Result_LCM( (i-1)*repeat_num+1:i*repeat_num) );
-
 
         auc_LFC(i)=mean(AUC_LFC( (i-1)*repeat_num+1:i*repeat_num));
         auc_PC(i)=mean(AUC_PC( (i-1)*repeat_num+1:i*repeat_num));

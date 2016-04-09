@@ -2,7 +2,7 @@ function [  ] = compare( experiment_num )
     Initialization();
     svm_para=sprintf('%s','-s 0 -t 0');
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% debug %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    total_repeat_num=2;begin_num=10;end_num=11;count=zeros(end_num*10,(end_num-begin_num+1)*total_repeat_num); 
+%     total_repeat_num=2;begin_num=10;end_num=11;count=zeros(end_num*10,(end_num-begin_num+1)*total_repeat_num); 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% debug %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     for num=begin_num:end_num
         for repeat_num=1:total_repeat_num
@@ -45,14 +45,8 @@ function [  ] = compare( experiment_num )
             Time_YAN ((num-begin_num)*total_repeat_num+repeat_num)= toc;            
             tic
             [W_LCM( (num-begin_num)*total_repeat_num+repeat_num,: ),count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num )]=LCM(X,Y,svm_para);
-%             =Soft_LCM(X,count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num ));
+
             Time_Soft_LCM((num-begin_num)*total_repeat_num+repeat_num)= toc;
-%             tic
-%             [Model_ABEL(1:expert_num,(num-begin_num)*total_repeat_num+repeat_num),weight(1:expert_num,(num-begin_num)*total_repeat_num+repeat_num)]=ABEL(X,Y,svm_para);
-%             Time_ABEL ((num-begin_num)*total_repeat_num+repeat_num)= toc;
-%             tic
-%             [parameter((num-begin_num)*total_repeat_num+repeat_num,1),Model_DCS_LA(1:expert_num,(num-begin_num)*total_repeat_num+repeat_num)]=DCS_LA(X,Y,svm_para,K);
-%             Time_DCS_LA ((num-begin_num)*total_repeat_num+repeat_num)= toc;
 
             [n,d]=size(X);
             X(:,d+1)=1;d=d+1;  
@@ -88,15 +82,10 @@ function [  ] = compare( experiment_num )
         count=count';
         file_name=sprintf('%s%s',output_file_dir,'count.mat');
         save(file_name,'count');
-%         file_name=sprintf('%s%s',output_file_dir,'Model_ABEL.mat');
-%         save(file_name,'Model_ABEL','weight');
-%         file_name=sprintf('%s%s',output_file_dir,'Model_DCS_LA.mat');
-%         save(file_name,'Model_DCS_LA','parameter');   
 
-%         if experiment_num == 3 || experiment_num == 4
         file_name=sprintf('%s%s',output_file_dir,'Time.mat');
         save(file_name,'Time_*');
-%         end
+
 
     end
 end
