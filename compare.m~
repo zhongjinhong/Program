@@ -23,14 +23,16 @@ function [  ] = compare( experiment_num )
                     file_name=sprintf('%s%s%s',input_file_dir,'Y_1','.mat');
                     load(file_name);
                     Y_temp=Y;
+                    Y_temp=load(file_name);
+                    Y = Y_temp;
                     for i = 1:num-1
                         Y = [Y Y_temp];
                     end
                 case {10}
                     file_name=sprintf('%s%s',input_file_dir,'X.mat');
-                    load(file_name);  
+                    X=load(file_name);  
                     file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'Y_',num*5,'_',repeat_num,'.mat');
-                    load(file_name);                    
+                    Y=load(file_name);                    
             end
             n=size(X,1);    
             expert_num=size(Y,2);
