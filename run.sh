@@ -1,14 +1,14 @@
 #!/bin/bash
-array=(2 4 6 8);
+array=(1 4);
 num=${#array[@]} 
 for ((i=0;i<num;i++))
 {
 #echo ${array[$i]};
 command=$(printf 'compare(%d);handle_result(%d)' ${array[$i]} ${array[$i]});
 echo $command;
-#matlab -nodesktop -nosplash -nojvm -r $command
+matlab -nodesktop -nosplash -nojvm -r $command
 
-}
+}&
 
 
 
