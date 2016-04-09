@@ -61,42 +61,42 @@ switch experiment_num
     case 21
         input_file_dir='../Input Data/Real Data/Clustering/';
         output_file_dir='../Output Data/Real Data/Clustering/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
         title_name='Twitter Topic(Yan Yan''s Data)';
     case 22
         input_file_dir='../Input Data/Real Data/latent model/';
         output_file_dir='../Output Data/Real Data/latent model/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
         title_name='Twitter Topic(Raykar''s Data)';
     case 23
         input_file_dir='../Input Data/Real Data/expertise_difficult_model/';
         output_file_dir='../Output Data/Real Data/expertise_difficult_model/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
         title_name='Twitter Topic(Whitehill''s Data)';
     case 24
         input_file_dir='../Input Data/Real Data/Real Label/';
         output_file_dir='../Output Data/Real Data/Real Label/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=1;count=zeros(2*1000,total_repeat_num);
         title_name='Twitter Topic(Real Data)';
         
     case 25
         input_file_dir='../Input Data/Real_Data_AAAI/Clustering/';
         output_file_dir='../Output Data/Real_Data_AAAI/Clustering/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Yan Yan''s Data)';              
     case 26
         input_file_dir='../Input Data/Real_Data_AAAI/latent model/';
         output_file_dir='../Output Data/Real_Data_AAAI/latent model/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Raykar''s Data)';
     case 27
         input_file_dir='../Input Data/Real_Data_AAAI/expertise_difficult_model/';
         output_file_dir='../Output Data/Real_Data_AAAI/expertise_difficult_model/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Whitehill''s Data)';
     case 28
         input_file_dir='../Input Data/Real_Data_AAAI/Real Label/';
         output_file_dir='../Output Data/Real_Data_AAAI/Real Label/';
-        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Real Data)';
 end
