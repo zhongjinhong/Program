@@ -9,6 +9,7 @@ function [  ] = handle_result( experiment_num )
     load(file_name);
     file_name=sprintf('%s%s',input_file_dir,'Y_test.mat');
     load(file_name);
+    
 
     file_name=sprintf('%s%s',output_file_dir,'W_LFC.mat');
     load(file_name);
@@ -33,7 +34,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_LFC(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>0)
+            if(predict_label(i,1)*Y_test(i)>=0)
                 Result_LFC(t)=Result_LFC(t)+1;
             end
         end
@@ -51,7 +52,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
              predict_label(i,1)=W_PC(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>0)
+            if(predict_label(i,1)*Y_test(i)>=0)
                 Result_PC(t)=Result_PC(t)+1;
             end
         end

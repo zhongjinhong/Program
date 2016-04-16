@@ -91,33 +91,30 @@ function [W,count]=LCM(X,Y,svm_para)
             if Y(i,t) == -2
                 continue;
             end
-
             p1 = pz_positive*accuracy_annotator(1, t)^(num_positive(i,t))*(1-accuracy_annotator(1, t))^(num_negative(i,t));
             p0 = pz_negative*accuracy_annotator(1, t)^(num_negative(i,t))*(1-accuracy_annotator(1, t))^(num_positive(i,t));
-
             if Y(i,t) == 1
                 Con(i,t) = p1/(p1+p0);
             else
-                Con(i,t) = p0/(p1+p0);
+                Con(i,t) = p0/(p1 + p0);
             end
             if Con(i,t) < 0.5
                 Y(i,t) = -Y(i,t);
                 Con(i,t) = 1 - Con(i,t);
             end
             Con(i,t) = exp(Con(i,t)) - exp(0.5);
-%             Con(i,t) = Con(i,t) - 0.5;
         end
     end
 
 
     count=zeros(2*n,1);
-    for i = 1:n
-        for t=1:expert_num        
+    for t=1:expert_num
+        for i = 1:n
             switch Y(i,t)
-                case -1
-                    count(i,1)=count(i,1)+Con(i,t);                    
                 case 1
-                    count(n+i,1)=count(n+i,1)+Con(i,t);
+                    count(n+i,1)=count(n+i,1)+Con(k,t);
+                case -1
+                    count(i,1)=count(i,1)+Con(k,t);
                 case -2
                     continue;
             end
