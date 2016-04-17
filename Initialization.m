@@ -82,17 +82,17 @@ switch experiment_num
     case 25
         input_file_dir='../Input Data/Real_Data_AAAI/Clustering/';
         output_file_dir='../Output Data/Real_Data_AAAI/Clustering/';
-        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Yan Yan''s Data)';              
     case 26
         input_file_dir='../Input Data/Real_Data_AAAI/latent model/';
         output_file_dir='../Output Data/Real_Data_AAAI/latent model/';
-        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Raykar''s Data)';
     case 27
         input_file_dir='../Input Data/Real_Data_AAAI/expertise_difficult_model/';
         output_file_dir='../Output Data/Real_Data_AAAI/expertise_difficult_model/';
-        total_repeat_num=5;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=1;begin_num=1;end_num=1;count=zeros(2*6000,total_repeat_num);
         title_name='NER(Whitehill''s Data)';
     case 28
         input_file_dir='../Input Data/Real_Data_AAAI/Real Label/';
