@@ -101,25 +101,25 @@ function [  ] = handle_result( experiment_num )
         AUC_M3V(t) = trapz(fpr,tpr);
         Result_M3V(t)= Result_M3V(t)/n;
     end    
-
-    Result_YAN=zeros(total_iteration_num,1);
-    for t=1:total_iteration_num    
-        for i=1:n
-            predict_label(i,1)=W_YAN(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
-                Result_YAN(t)=Result_YAN(t)+1;
-            end
-        end
-        [tpr,fpr] = roc(target,predict_label');
-        point_num = size(tpr,2);
-        if tpr(point_num)~=1 || fpr(point_num)~=1
-            tpr(1,point_num+1) = 1;
-            fpr(1,point_num+1) = 1;
-        end
-        AUC_YAN(t) = trapz(fpr,tpr);
-        Result_YAN(t)= Result_YAN(t)/n;
-    end   
-    
+% 
+%     Result_YAN=zeros(total_iteration_num,1);
+%     for t=1:total_iteration_num    
+%         for i=1:n
+%             predict_label(i,1)=W_YAN(t,:)*X_test(i,:)';
+%             if(predict_label(i,1)*Y_test(i)>=0)
+%                 Result_YAN(t)=Result_YAN(t)+1;
+%             end
+%         end
+%         [tpr,fpr] = roc(target,predict_label');
+%         point_num = size(tpr,2);
+%         if tpr(point_num)~=1 || fpr(point_num)~=1
+%             tpr(1,point_num+1) = 1;
+%             fpr(1,point_num+1) = 1;
+%         end
+%         AUC_YAN(t) = trapz(fpr,tpr);
+%         Result_YAN(t)= Result_YAN(t)/n;
+%     end   
+%     
     Result_LCM=zeros(total_iteration_num,1);
     for t=1:total_iteration_num    
         for i=1:n
@@ -145,14 +145,14 @@ function [  ] = handle_result( experiment_num )
         acc_PC(i)=mean(Result_PC( (i-1)*repeat_num+1:i*repeat_num));
         acc_MV(i)=mean(Result_MV( (i-1)*repeat_num+1:i*repeat_num));
         acc_M3V(i)=mean(Result_M3V( (i-1)*repeat_num+1:i*repeat_num));
-        acc_YAN(i)=mean(Result_YAN( (i-1)*repeat_num+1:i*repeat_num));   
+%         acc_YAN(i)=mean(Result_YAN( (i-1)*repeat_num+1:i*repeat_num));   
         acc_Soft_LCM(i)=mean( Result_LCM( (i-1)*repeat_num+1:i*repeat_num) );
 
         auc_LFC(i)=mean(AUC_LFC( (i-1)*repeat_num+1:i*repeat_num));
         auc_PC(i)=mean(AUC_PC( (i-1)*repeat_num+1:i*repeat_num));
         auc_MV(i)=mean(AUC_MV( (i-1)*repeat_num+1:i*repeat_num));
         auc_M3V(i)=mean(AUC_M3V( (i-1)*repeat_num+1:i*repeat_num));
-        auc_YAN(i)=mean(AUC_YAN( (i-1)*repeat_num+1:i*repeat_num));
+%         auc_YAN(i)=mean(AUC_YAN( (i-1)*repeat_num+1:i*repeat_num));
         auc_Soft_LCM(i)=mean( AUC_LCM( (i-1)*repeat_num+1:i*repeat_num) );
     end
 

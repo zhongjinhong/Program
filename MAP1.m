@@ -18,7 +18,10 @@ function [f,g] = MAP1(w)
    for i=1:n
        if Y_g(i,1)~= -2
            g=g-( Y_g(i,1)-pi(i,1) )*X_g(i,:)';
-           f = f - Y_g(i,1)*log(pi(i,1)) - (1-Y_g(i,1))*log(1-pi(i,1)+epsilon);
+           f = f - Y_g(i,1)*log(pi(i,1) + epsilon ) - (1-Y_g(i,1))*log(1-pi(i,1)+epsilon);
+       end
+       if (isnan(f))
+           break;
        end
    end
 end

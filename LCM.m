@@ -45,16 +45,18 @@ function [W,count]=LCM(X,Y,svm_para)
         available_num = 0;
         total_accuracy = 0;
         for k=1:K
-            if size(model(k,t).Label,1) <= 1
-                continue
+            if size(model(k,t).Label,1) == 1
+                predict_lable = ones(n,1)*model(k,t).Label;
+            else
+                w0=model(k,t).sv_coef'*model(k,t).SVs;
+                b=-model(k,t).rho;
+                if(model(k,t).Label(1,1)~=1)
+                    w0=-w0;
+                    b=-b;
+                end
+                predict_lable = sign( w0*X(1:n,:)' +b )';                
             end
-            w0=model(k,t).sv_coef'*model(k,t).SVs;
-            b=-model(k,t).rho;
-            if(model(k,t).Label(1,1)~=1)
-                w0=-w0;
-                b=-b;
-            end
-            predict_lable = sign( w0*X(1:n,:)' +b )';
+
             for i=1:n
                 if(predict_lable(i,1)==1)
                   num_positive(i,t) = num_positive(i,t) + 1;
