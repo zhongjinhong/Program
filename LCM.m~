@@ -83,12 +83,15 @@ function [W,count]=LCM(X,Y,svm_para)
             end
 
         end
-        if available_num >= 0.5*K
+        if available_num > 0
             accuracy_annotator(1, t) = total_accuracy/available_num;
         else
             accuracy_annotator(1, t) = -1;
         end
         
+        if isnan(accuracy_annotator(1, t))
+            flag = 1;
+        end
     end
 
 %%%%%%%%%%%%%Calculate each label's weight
@@ -99,7 +102,7 @@ function [W,count]=LCM(X,Y,svm_para)
         pz_positive = total_positive/( total_positive + total_negative );
         pz_negative = 1 - pz_positive;
         for t = 1:expert_num
-            if Y(i,t) == -2 || accuracy_annotator(1, t) == -1
+            if Y(i,t) == -2
                 continue;
             end
 
@@ -110,7 +113,13 @@ function [W,count]=LCM(X,Y,svm_para)
                 Con(i,t) = p1/(p1+p0);
             else
                 Con(i,t) = p0/(p1+p0);
-            end        
+            end
+            
+            if isnan( Con(i,t) )
+                flag = 1;
+            end
+            
+            
             
             if Con(i,t) < 0.5
                 Y(i,t) = -Y(i,t);
