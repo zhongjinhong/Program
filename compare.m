@@ -7,7 +7,7 @@ function [  ] = compare( experiment_num )
     for num=begin_num:end_num
         for repeat_num=1:total_repeat_num
             switch experiment_num
-                case {1,2,3,4,5,6,7,8,9,12}
+                case {1,2,3,4,5,6,7,8,9,12,28}
                     file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'X_',num*step_num,'_',repeat_num,'.mat');
                     load(file_name);  
                     file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'Y_',num*step_num,'_',repeat_num,'.mat');
@@ -17,7 +17,7 @@ function [  ] = compare( experiment_num )
                     load(file_name);  
                     file_name=sprintf('%s%s%d%s',input_file_dir,'Y_',repeat_num,'.mat');
                     load(file_name);   
-                case {11,24,28}
+                case {11,24}
                     file_name=sprintf('%s%s',input_file_dir,'X.mat');
                     load(file_name);  
                     file_name=sprintf('%s%s%s',input_file_dir,'Y_1','.mat');
@@ -40,9 +40,9 @@ function [  ] = compare( experiment_num )
             tic
             W_M3V( (num-begin_num)*total_repeat_num+repeat_num,: )=M3V(X,Y,svm_para);
             Time_M3V ((num-begin_num)*total_repeat_num+repeat_num)= toc;
-            tic
-            W_YAN( (num-begin_num)*total_repeat_num+repeat_num,: )=YAN(X,Y);
-            Time_YAN ((num-begin_num)*total_repeat_num+repeat_num)= toc;            
+%             tic
+%             W_YAN( (num-begin_num)*total_repeat_num+repeat_num,: )=YAN(X,Y);
+%             Time_YAN ((num-begin_num)*total_repeat_num+repeat_num)= toc;            
             tic
             [W_LCM( (num-begin_num)*total_repeat_num+repeat_num,: ),count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num )]=LCM(X,Y,svm_para);
 
@@ -75,8 +75,8 @@ function [  ] = compare( experiment_num )
         save(file_name,'W_MV');
         file_name=sprintf('%s%s',output_file_dir,'W_M3V.mat');
         save(file_name,'W_M3V');
-        file_name=sprintf('%s%s',output_file_dir,'W_YAN.mat');
-        save(file_name,'W_YAN');        
+%         file_name=sprintf('%s%s',output_file_dir,'W_YAN.mat');
+%         save(file_name,'W_YAN');        
         file_name=sprintf('%s%s',output_file_dir,'W_LCM.mat');
         save(file_name,'W_LCM');
         count=count';

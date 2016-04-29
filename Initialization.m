@@ -18,17 +18,17 @@ switch experiment_num
     case 4
         input_file_dir='../Input Data/Conect/Clustering/';    
         output_file_dir='../Output Data/Conect/Clustering/';
-        total_repeat_num=10;begin_num=1;end_num=100;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num); 
+        total_repeat_num=10;begin_num=1;end_num=55;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num); 
         title_name=('Conect(Yan Yan''s Data)'); 
     case 5
         input_file_dir='../Input Data/Conect/latent model/';
         output_file_dir='../Output Data/Conect/latent model/';
-        total_repeat_num=10;begin_num=1;end_num=100;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=55;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num);
         title_name='Conect(Raykar''s Data)';
     case 6
         input_file_dir='../Input Data/Conect/expertise_difficult_model/';
         output_file_dir='../Output Data/Conect/expertise_difficult_model/';
-        total_repeat_num=10;begin_num=1;end_num=100;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=55;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num);
         title_name='Conect(Whitehill''s Data)'; 
                 
         
@@ -52,7 +52,7 @@ switch experiment_num
         input_file_dir ='../Input Data/Real Data with spammers/';
         output_file_dir='../Output Data/Real Data with spammers/';
         total_repeat_num=20;begin_num=1;end_num=10;step_num = 5;count=zeros(2*938,(end_num-begin_num+1)*total_repeat_num);
-        title_name='Robustness for low-quality annotators';
+        title_name='Robustness to low-quality annotators';
     case 11
         input_file_dir='../Input Data/Real Data/Real Label/';
         output_file_dir='../Output Data/Real Data Time/';
@@ -92,7 +92,7 @@ switch experiment_num
     case 26
         input_file_dir='../Input Data/Real_Data_AAAI/latent model/';
         output_file_dir='../Output Data/Real_Data_AAAI/latent model/';
-        total_repeat_num=1;begin_num=1;end_num=1;step_num = 1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=1;begin_num=1;end_num=1;step_num = 1;count=zeros(2*1472,total_repeat_num);
         title_name='NER(Raykar''s Data)';
     case 27
         input_file_dir='../Input Data/Real_Data_AAAI/expertise_difficult_model/';
@@ -102,6 +102,6 @@ switch experiment_num
     case 28
         input_file_dir='../Input Data/Real_Data_AAAI/Real Label/';
         output_file_dir='../Output Data/Real_Data_AAAI/Real Label/';
-        total_repeat_num=1;begin_num=1;end_num=1;step_num = 1;count=zeros(2*6000,total_repeat_num);
+        total_repeat_num=1;begin_num=1;end_num=4;step_num = 200;count=zeros(2*end_num*step_num,total_repeat_num);
         title_name='NER(Real Data)';
 end

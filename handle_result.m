@@ -19,8 +19,8 @@ function [  ] = handle_result( experiment_num )
     load(file_name);
     file_name=sprintf('%s%s',output_file_dir,'W_M3V.mat');
     load(file_name);
-    file_name=sprintf('%s%s',output_file_dir,'W_YAN.mat');
-    load(file_name);   
+%     file_name=sprintf('%s%s',output_file_dir,'W_YAN.mat');
+%     load(file_name);   
     %%%%%%%%%%%%%%%%%
     file_name=sprintf('%s%s',output_file_dir,'W_LCM.mat');
     load(file_name);
