@@ -102,6 +102,6 @@ switch experiment_num
     case 28
         input_file_dir='../Input Data/Real_Data_AAAI/Real Label/';
         output_file_dir='../Output Data/Real_Data_AAAI/Real Label/';
-        total_repeat_num=1;begin_num=1;end_num=4;step_num = 200;count=zeros(2*end_num*step_num,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=4;step_num = 200;count=zeros(2*end_num*step_num,total_repeat_num);
         title_name='NER(Real Data)';
 end
