@@ -143,7 +143,7 @@ function [W,count]=LCM(X,Y,svm_para)
 %     weight=count/max(count);
     Model=svmtrain(weight,train_label,train_data,svm_para);
     
-    save('debug.mat','*');
+    save('debug.mat','*','-v7.3');
     W=Model.sv_coef'*Model.SVs;
     b=-Model.rho;
     W=[W b];
