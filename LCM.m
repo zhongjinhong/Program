@@ -1,5 +1,5 @@
 function [W,count]=LCM(X,Y,svm_para)
-    K=10;
+    K=10;emusinon = 10^(-6);
     [n,d]=size(X);expert_num=size(Y,2);
     X_temp=zeros(n,d);
     Y_temp=zeros(n,1);
@@ -76,7 +76,7 @@ function [W,count]=LCM(X,Y,svm_para)
             end
                 
                 
-            if(Numm(k,t)>0)
+            if(Numm(k,t)>=5)
                 p = accuracy_bagging(k,t)/Numm(k,t);
                 available_num = available_num + 1;
                 total_accuracy = total_accuracy + p;
@@ -103,13 +103,13 @@ function [W,count]=LCM(X,Y,svm_para)
                 continue;
             end
 
-            p1 = pz_positive*accuracy_annotator(1, t)^(num_positive(i,t))*(1-accuracy_annotator(1, t))^(num_negative(i,t));
-            p0 = pz_negative*accuracy_annotator(1, t)^(num_negative(i,t))*(1-accuracy_annotator(1, t))^(num_positive(i,t));
+            p1 = pz_positive*(accuracy_annotator(1, t)+emusinon)^(num_positive(i,t))*(1-accuracy_annotator(1, t)+emusinon)^(num_negative(i,t));
+            p0 = pz_negative*(accuracy_annotator(1, t)+emusinon)^(num_negative(i,t))*(1-accuracy_annotator(1, t)+emusinon)^(num_positive(i,t));
 
             if Y(i,t) == 1
-                Con(i,t) = p1/(p1+p0);
+                Con(i,t) = (p1+emusinon)/(p1+p0+emusinon);
             else
-                Con(i,t) = p0/(p1+p0);
+                Con(i,t) = (p0+emusinon)/(p1+p0+emusinon);
             end        
             
             if Con(i,t) < 0.5
@@ -143,7 +143,7 @@ function [W,count]=LCM(X,Y,svm_para)
 %     weight=count/max(count);
     Model=svmtrain(weight,train_label,train_data,svm_para);
     
-    save('debug.mat','*','-v7.3');
+%     save('debug.mat','*','-v7.3');
     W=Model.sv_coef'*Model.SVs;
     b=-Model.rho;
     W=[W b];
