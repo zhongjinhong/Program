@@ -1,4 +1,4 @@
-function [  ] = plot_figures( experiment_num )
+function [  ] = plot_figures( experiment_num, plot_flag )
 
     Initialization();
     
@@ -24,7 +24,16 @@ function [  ] = plot_figures( experiment_num )
             title(title_name,'FontSize',16)
             xlabel('The instance number','FontSize',16);
             ylabel('The test accuracy(%)','FontSize',16);
-            legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+            
+            if plot_flag == 1
+                legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+            else
+                han(6,1)=plot(x_label, acc_MV_Probability,'-ys','LineWidth',linewidth,'MarkerFaceColor','y');
+                han(7,1)=plot(x_label, acc_DS_Estimator,'-ms','LineWidth',linewidth,'MarkerFaceColor','m');
+                legend(han(1:7),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive','MV_Probability','DS_Estimator');
+            end
+            
+            
             xmin=min(x_label);
             xmax=max(x_label);
 %             xlim([xmin,xmax])
@@ -44,7 +53,15 @@ function [  ] = plot_figures( experiment_num )
             title(title_name,'FontSize',16)
             xlabel('The instance number','FontSize',16);
             ylabel('The AUC','FontSize',16);
-            legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+
+            if plot_flag == 1
+                legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+            else
+                han(6,1)=plot(x_label, auc_MV_Probability,'-ys','LineWidth',linewidth,'MarkerFaceColor','y');
+                han(7,1)=plot(x_label, auc_DS_Estimator,'-ms','LineWidth',linewidth,'MarkerFaceColor','m');
+                legend(han(1:7),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive','MV_Probability','DS_Estimator');
+            end
+
 %             xlim([xmin,xmax])
         else
             file_name=sprintf('%s%s',output_file_dir,'plot_data.mat');
