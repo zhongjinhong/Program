@@ -66,7 +66,8 @@ function [W,count]=LCM_old(X,Y,svm_para)
             
             if(Numm(k,t)>0)
                 p = Con(k,t)/Numm(k,t);
-                Con(k,t) = log( (1+p)/(2-p) )/log(2);
+%                 Con(k,t) = log( (1+p)/(2-p) )/log(2);
+                Con(k,t) = exp(p)-exp(0.5);
                 if Con(k,t) < 0
                     model(k,t).rho = -model(k,t).rho;
                     model(k,t).sv_coef = - model(k,t).sv_coef;
