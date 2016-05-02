@@ -35,7 +35,7 @@ function [  ] = handle_result( experiment_num )
     
     [n d]=size(X_test);
     X_test(:,d+1)=ones(n,1);
-    total_iteration_num=size(W_LCM,1);
+    total_iteration_num=size(W_LCM,1);      
     target=(0.5*Y_test+0.5)';
     predict_label=zeros(n,1);
     Result_LFC=zeros(total_iteration_num,1);
