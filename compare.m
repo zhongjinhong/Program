@@ -87,8 +87,8 @@ function [  ] = compare( experiment_num )
 %         save(file_name,'W_LFC');
 %         file_name=sprintf('%s%s',output_file_dir,'W_PC.mat');
 %         save(file_name,'W_PC');
-%         file_name=sprintf('%s%s',output_file_dir,'W_MV.mat');
-%         save(file_name,'W_MV');
+        file_name=sprintf('%s%s',output_file_dir,'W_MV.mat');
+        save(file_name,'W_MV');
 %         file_name=sprintf('%s%s',output_file_dir,'W_M3V.mat');
 %         save(file_name,'W_M3V');      
         file_name=sprintf('%s%s',output_file_dir,'W_LCM.mat');
