@@ -64,7 +64,7 @@ function [W,count]=LCM_old(X,Y,svm_para)
             end
             
             
-            if(Numm(k,t)>0)
+            if(Numm(k,t)>5)
                 p = Con(k,t)/Numm(k,t);
 %                 Con(k,t) = log( (1+p)/(2-p) )/log(2);
                 Con(k,t) = exp(p)-exp(0.5);

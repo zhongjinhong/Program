@@ -2,6 +2,7 @@ function [  ] = compare( experiment_num )
     Initialization();
     svm_para=sprintf('%s','-s 0 -t 0');
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% debug %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    count_test = count;
 %     total_repeat_num=2;begin_num=10;end_num=11;count=zeros(end_num*10,(end_num-begin_num+1)*total_repeat_num); 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% debug %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     for num=begin_num:end_num
@@ -36,6 +37,8 @@ function [  ] = compare( experiment_num )
             expert_num=size(Y,2);
 %             tic
 %             W_MV( (num-begin_num)*total_repeat_num+repeat_num,: )=Majority_Method(X,Y,svm_para);
+            
+            [W_MV( (num-begin_num)*total_repeat_num+repeat_num,: ),count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num )]=LCM_test(X,Y,svm_para);
 %             Time_MV ((num-begin_num)*total_repeat_num+repeat_num)= toc;
 %             tic
 %             W_M3V( (num-begin_num)*total_repeat_num+repeat_num,: )=M3V(X,Y,svm_para);
