@@ -98,7 +98,7 @@ function [  ] = compare( experiment_num )
 %         save(file_name,'W_DS_Estimator');
 %         
         
-        count=count';
+        count=count;
         file_name=sprintf('%s%s',output_file_dir,'count.mat');
         save(file_name,'count','-v7.3');
 
