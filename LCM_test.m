@@ -60,7 +60,7 @@ function [W,count]=LCM_test(X,Y,svm_para)
             end
             
             balance = sum( predict_lable(k,t).label == 1)/n;
-            if balance > 0.7 || balance < 0.3
+            if balance > 0.8 || balance < 0.2
                 continue;
             end
 
