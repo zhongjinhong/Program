@@ -8,12 +8,12 @@ function [  ] = compare( experiment_num )
     for num=begin_num:end_num
         for repeat_num=1:total_repeat_num
             switch experiment_num
-                case {1,2,3,4,5,6,7,8,9,12,28,29,30,31,32}
+                case {1,2,3,4,5,6,7,8,9,12,26,28,29,30,31,32}
                     file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'X_',num*step_num,'_',repeat_num,'.mat');
                     load(file_name);  
                     file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'Y_',num*step_num,'_',repeat_num,'.mat');
                     load(file_name);
-                case {21,22,23,25,26,27}
+                case {21,22,23,25,27}
                     file_name=sprintf('%s%s',input_file_dir,'X.mat');
                     load(file_name);  
                     file_name=sprintf('%s%s%d%s',input_file_dir,'Y_',repeat_num,'.mat');
