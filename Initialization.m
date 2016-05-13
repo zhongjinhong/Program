@@ -92,7 +92,7 @@ switch experiment_num
     case 26
         input_file_dir='../Input Data/Real_Data_AAAI/latent model/';
         output_file_dir='../Output Data/Real_Data_AAAI/latent model/';
-        total_repeat_num=1;begin_num=1;end_num=1;step_num = 1;count=zeros(2*1472,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=7;step_num = 200;count=zeros(2*end_num*step_num,total_repeat_num);
         title_name='NER(Raykar''s Data)';
     case 27
         input_file_dir='../Input Data/Real_Data_AAAI/expertise_difficult_model/';
@@ -102,7 +102,7 @@ switch experiment_num
     case 28
         input_file_dir='../Input Data/Real_Data_AAAI/Real Label/';
         output_file_dir='../Output Data/Real_Data_AAAI/Real Label/';
-        total_repeat_num=10;begin_num=1;end_num=4;step_num = 200;count=zeros(2*end_num*step_num,total_repeat_num);
+        total_repeat_num=10;begin_num=1;end_num=7;step_num = 200;count=zeros(2*end_num*step_num,total_repeat_num);
         title_name='NER(Real Data)';
         
     case 29%%total_repeat_num=1 needs about 10h

@@ -13,7 +13,7 @@ function [W,count]=LCM_test(X,Y,svm_para)
                 if Y(temp_index,t) ~= -2 %% if the annotator does not label this instance.
                     num = num +1;
                     X_temp(num,:)=X(temp_index,:);
-                    Y_temp(num,1)=Y(temp_index,t);
+                    Y_temp(num,1)=Y(temp_index,t); 
                 end
             end
             model(k,t)=svmtrain(ones(num,1), Y_temp(1:num,1), X_temp(1:num,:), svm_para);
