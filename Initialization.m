@@ -48,11 +48,19 @@ switch experiment_num
         output_file_dir='../Output Data/mushroom/expertise_difficult_model/';
         total_repeat_num=20;begin_num=10;end_num=30;step_num = 10;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num);
         title_name='mushroom(Whitehill''s Data)';
+        
+        
     case 10
-        input_file_dir ='../Input Data/Real Data with spammers/';
-        output_file_dir='../Output Data/Real Data with spammers/';
-        total_repeat_num=20;begin_num=1;end_num=10;step_num = 5;count=zeros(2*938,(end_num-begin_num+1)*total_repeat_num);
-        title_name='Robustness to low-quality annotators';
+        input_file_dir ='../Input Data/Real Data with spammers/latent model/';
+        output_file_dir='../Output Data/Real Data with spammers/latent model/';
+        total_repeat_num=20;begin_num=1;end_num=10;step_num = 5;count=zeros(2*1000,(end_num-begin_num+1)*total_repeat_num);
+        title_name='Robustness to low-quality annotators(Raykar''s Data)';
+    case 13
+        input_file_dir ='../Input Data/Real Data with spammers/expertise_difficult_model/';
+        output_file_dir='../Output Data/Real Data with spammers/expertise_difficult_model/';
+        total_repeat_num=20;begin_num=1;end_num=10;step_num = 5;count=zeros(2*1000,(end_num-begin_num+1)*total_repeat_num);
+        title_name='Robustness to low-quality annotators(Whitehill''s Data)';           
+        
     case 11
         input_file_dir='../Input Data/Real Data/Real Label/';
         output_file_dir='../Output Data/Real Data Time/';
@@ -62,7 +70,8 @@ switch experiment_num
         input_file_dir='../Input Data/Covtype/latent model/';
         output_file_dir='../Output Data/Covtype/latent model/';
         total_repeat_num=20;begin_num=10;end_num=1000;step_num = 100;count=zeros(2*end_num*step_num,(end_num-begin_num+1)*total_repeat_num); 
-        title_name='Covtype';      
+        title_name='Covtype';       
+        
     case 21 %%total_repeat_num=10 needs about 12h
         input_file_dir='../Input Data/Real Data/Clustering/';
         output_file_dir='../Output Data/Real Data/Clustering/';

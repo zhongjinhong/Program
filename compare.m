@@ -27,10 +27,10 @@ function [  ] = compare( experiment_num )
                     for i = 1:num-1
                         Y = [Y Y_temp];
                     end
-                case {10}
+                case {10,13}
                     file_name=sprintf('%s%s',input_file_dir,'X.mat');
                     load(file_name);  
-                    file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'Y_',num*5,'_',repeat_num,'.mat');
+                    file_name=sprintf('%s%s%d%s%d%s',input_file_dir,'Y_',num*step_num,'_',repeat_num,'.mat');
                     load(file_name);                    
             end
             n=size(X,1);    
