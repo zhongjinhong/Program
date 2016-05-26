@@ -46,7 +46,7 @@ function [  ] = handle_result( experiment_num )
                 Result_LFC(t)=Result_LFC(t)+1;
 %             elseif(predict_label(i,1)*Y_test(i)==0)
 %                 Result_LFC(t)=Result_LFC(t)+0.5;
-%             end
+            end
         end
         [tpr,fpr] = roc(target,predict_label');
         point_num = size(tpr,2);
