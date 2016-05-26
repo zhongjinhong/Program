@@ -42,9 +42,11 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_LFC(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_LFC(t)=Result_LFC(t)+1;
-            end
+%             elseif(predict_label(i,1)*Y_test(i)==0)
+%                 Result_LFC(t)=Result_LFC(t)+0.5;
+%             end
         end
         [tpr,fpr] = roc(target,predict_label');
         point_num = size(tpr,2);
@@ -60,7 +62,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
              predict_label(i,1)=W_PC(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_PC(t)=Result_PC(t)+1;
             end
         end
@@ -78,7 +80,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_MV(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_MV(t)=Result_MV(t)+1;
             end
         end
@@ -96,7 +98,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_M3V(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_M3V(t)=Result_M3V(t)+1;
             end
         end
@@ -114,7 +116,7 @@ function [  ] = handle_result( experiment_num )
 %     for t=1:total_iteration_num    
 %         for i=1:n
 %             predict_label(i,1)=W_YAN(t,:)*X_test(i,:)';
-%             if(predict_label(i,1)*Y_test(i)>=0)
+%             if(predict_label(i,1)*Y_test(i)>0)
 %                 Result_YAN(t)=Result_YAN(t)+1;
 %             end
 %         end
@@ -132,7 +134,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_LCM(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_LCM(t)=Result_LCM(t)+1;
             end
         end
@@ -151,7 +153,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_MV_Probability(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_MV_Probability(t)=Result_MV_Probability(t)+1;
             end
         end
@@ -170,7 +172,7 @@ function [  ] = handle_result( experiment_num )
     for t=1:total_iteration_num    
         for i=1:n
             predict_label(i,1)=W_DS_Estimator(t,:)*X_test(i,:)';
-            if(predict_label(i,1)*Y_test(i)>=0)
+            if(predict_label(i,1)*Y_test(i)>0)
                 Result_DS_Estimator(t)=Result_DS_Estimator(t)+1;
             end
         end
