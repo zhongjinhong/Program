@@ -132,7 +132,7 @@ switch experiment_num
     case 32
         input_file_dir='../Input Data/tiantian/Real Label/';
         output_file_dir='../Output Data/tiantian/Real Label/';
-        total_repeat_num=10;begin_num=1;end_num=10;step_num = 20;count=zeros(2*end_num*step_num,total_repeat_num);
+        total_repeat_num=10;begin_num=9;end_num=10;step_num = 20;count=zeros(2*end_num*step_num,total_repeat_num);
         title_name='Flower(Real Data)';
         
 end

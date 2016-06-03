@@ -32,7 +32,6 @@ function [  ] = compare( experiment_num )
             expert_num=size(Y,2);
             tic
             W_MV( (num-begin_num)*total_repeat_num+repeat_num,: )=Majority_Method(X,Y,svm_para);            
-%             [W_MV( (num-begin_num)*total_repeat_num+repeat_num,: ),count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num )]=LCM_test(X,Y,svm_para);
             Time_MV ((num-begin_num)*total_repeat_num+repeat_num)= toc;
             
             tic

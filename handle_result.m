@@ -44,8 +44,8 @@ function [  ] = handle_result( experiment_num )
             predict_label(i,1)=W_LFC(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_LFC(t)=Result_LFC(t)+1;
-%             elseif(predict_label(i,1)*Y_test(i)==0)
-%                 Result_LFC(t)=Result_LFC(t)+0.5;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_LFC(t)=Result_LFC(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
@@ -64,6 +64,8 @@ function [  ] = handle_result( experiment_num )
              predict_label(i,1)=W_PC(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_PC(t)=Result_PC(t)+1;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_PC(t)=Result_PC(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
@@ -82,6 +84,8 @@ function [  ] = handle_result( experiment_num )
             predict_label(i,1)=W_MV(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_MV(t)=Result_MV(t)+1;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_MV(t)=Result_MV(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
@@ -100,6 +104,8 @@ function [  ] = handle_result( experiment_num )
             predict_label(i,1)=W_M3V(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_M3V(t)=Result_M3V(t)+1;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_M3V(t)=Result_M3V(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
@@ -136,6 +142,8 @@ function [  ] = handle_result( experiment_num )
             predict_label(i,1)=W_LCM(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_LCM(t)=Result_LCM(t)+1;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_LCM(t)=Result_LCM(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
@@ -155,6 +163,8 @@ function [  ] = handle_result( experiment_num )
             predict_label(i,1)=W_MV_Probability(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_MV_Probability(t)=Result_MV_Probability(t)+1;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_MV_Probability(t)=Result_MV_Probability(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
@@ -174,6 +184,8 @@ function [  ] = handle_result( experiment_num )
             predict_label(i,1)=W_DS_Estimator(t,:)*X_test(i,:)';
             if(predict_label(i,1)*Y_test(i)>0)
                 Result_DS_Estimator(t)=Result_DS_Estimator(t)+1;
+            elseif(predict_label(i,1)*Y_test(i)==0)
+                Result_DS_Estimator(t)=Result_DS_Estimator(t)+0.5;
             end
         end
         [tpr,fpr] = roc(target,predict_label');
