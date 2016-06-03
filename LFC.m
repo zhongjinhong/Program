@@ -21,7 +21,7 @@ function [w0]=LFC(X,Y)
 %     alpha=miu'*Y/sum_miu;
 %     beta=(1-miu)'*(1-Y)/(n-sum_miu);
     
-    W0=rand(d,1);
+    W0=0.01*rand(d,1);
 
 %     [w0,flag]=newton(W0,@likelihood,X,Y,miu);
     [ai,bi]=calculate_ai_bi(alpha,beta,Y);
@@ -61,4 +61,5 @@ function [w0]=LFC(X,Y)
         show_message=sprintf('t=%d',t);
         disp(show_message);
     end
+    
 end
