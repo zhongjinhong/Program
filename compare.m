@@ -30,18 +30,18 @@ function [  ] = compare( experiment_num )
             end
             n=size(X,1);    
             expert_num=size(Y,2);
-%             tic
-%             W_MV( (num-begin_num)*total_repeat_num+repeat_num,: )=Majority_Method(X,Y,svm_para);            
-%             Time_MV ((num-begin_num)*total_repeat_num+repeat_num)= toc;
-%             
-%             tic
-%             W_M3V( (num-begin_num)*total_repeat_num+repeat_num,: )=M3V(X,Y,svm_para);
-%             Time_M3V ((num-begin_num)*total_repeat_num+repeat_num)= toc;
-%           
-%             tic
-%             [W_LCM( (num-begin_num)*total_repeat_num+repeat_num,: ),count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num )]=LCM_test(X,Y,svm_para);
-% 
-%             Time_Soft_LCM((num-begin_num)*total_repeat_num+repeat_num)= toc;
+            tic
+            W_MV( (num-begin_num)*total_repeat_num+repeat_num,: )=Majority_Method(X,Y,svm_para);            
+            Time_MV ((num-begin_num)*total_repeat_num+repeat_num)= toc;
+            
+            tic
+            W_M3V( (num-begin_num)*total_repeat_num+repeat_num,: )=M3V(X,Y,svm_para);
+            Time_M3V ((num-begin_num)*total_repeat_num+repeat_num)= toc;
+          
+            tic
+            [W_LCM( (num-begin_num)*total_repeat_num+repeat_num,: ),count( 1:2*n,(num-begin_num)*total_repeat_num+repeat_num )]=LCM_test(X,Y,svm_para);
+
+            Time_Soft_LCM((num-begin_num)*total_repeat_num+repeat_num)= toc;
 
 
             for i=1:n
@@ -53,12 +53,12 @@ function [  ] = compare( experiment_num )
             end
             
             
-%             tic
-%             W_MV_Probability( (num-begin_num)*total_repeat_num+repeat_num,: )=MV_Probability(X,Y,svm_para);
-%             Time_MV_Probability((num-begin_num)*total_repeat_num+repeat_num)= toc;
-%             tic
-%             W_DS_Estimator( (num-begin_num)*total_repeat_num+repeat_num,: )=DS_Estimator(X,Y,svm_para);
-%             Time_DS_Estimator ((num-begin_num)*total_repeat_num+repeat_num)= toc;            
+            tic
+            W_MV_Probability( (num-begin_num)*total_repeat_num+repeat_num,: )=MV_Probability(X,Y,svm_para);
+            Time_MV_Probability((num-begin_num)*total_repeat_num+repeat_num)= toc;
+            tic
+            W_DS_Estimator( (num-begin_num)*total_repeat_num+repeat_num,: )=DS_Estimator(X,Y,svm_para);
+            Time_DS_Estimator ((num-begin_num)*total_repeat_num+repeat_num)= toc;            
 
 
             [n,d]=size(X);
@@ -67,9 +67,9 @@ function [  ] = compare( experiment_num )
             tic
             W_LFC( (num-begin_num)*total_repeat_num+repeat_num,: )=LFC(X,Y);
             Time_LFC( (num-begin_num)*total_repeat_num+repeat_num )= toc;
-%             tic
-%             W_PC( (num-begin_num)*total_repeat_num+repeat_num,: )=PC(X,Y);
-%             Time_PC ((num-begin_num)*total_repeat_num+repeat_num)= toc;
+            tic
+            W_PC( (num-begin_num)*total_repeat_num+repeat_num,: )=PC(X,Y);
+            Time_PC ((num-begin_num)*total_repeat_num+repeat_num)= toc;
 
             
             dis_information=sprintf('%s%d  %s%d\n','num=',num,'repeat_num=',repeat_num);
@@ -79,28 +79,28 @@ function [  ] = compare( experiment_num )
 
         file_name=sprintf('%s%s',output_file_dir,'W_LFC.mat');
         save(file_name,'W_LFC');
-%         file_name=sprintf('%s%s',output_file_dir,'W_PC.mat');
-%         save(file_name,'W_PC');
-%         file_name=sprintf('%s%s',output_file_dir,'W_MV.mat');
-%         save(file_name,'W_MV');
-%         file_name=sprintf('%s%s',output_file_dir,'W_M3V.mat');
-%         save(file_name,'W_M3V');      
-%         file_name=sprintf('%s%s',output_file_dir,'W_LCM.mat');
-%         save(file_name,'W_LCM');
-%         
-%         
-%         file_name=sprintf('%s%s',output_file_dir,'W_MV_Probability.mat');
-%         save(file_name,'W_MV_Probability');
-%         file_name=sprintf('%s%s',output_file_dir,'W_DS_Estimator.mat');
-%         save(file_name,'W_DS_Estimator');
+        file_name=sprintf('%s%s',output_file_dir,'W_PC.mat');
+        save(file_name,'W_PC');
+        file_name=sprintf('%s%s',output_file_dir,'W_MV.mat');
+        save(file_name,'W_MV');
+        file_name=sprintf('%s%s',output_file_dir,'W_M3V.mat');
+        save(file_name,'W_M3V');      
+        file_name=sprintf('%s%s',output_file_dir,'W_LCM.mat');
+        save(file_name,'W_LCM');
         
         
-%         count=count;
-%         file_name=sprintf('%s%s',output_file_dir,'count.mat');
-%         save(file_name,'count','-v7.3');
-% 
-%         file_name=sprintf('%s%s',output_file_dir,'Time.mat');
-%         save(file_name,'Time_*');
+        file_name=sprintf('%s%s',output_file_dir,'W_MV_Probability.mat');
+        save(file_name,'W_MV_Probability');
+        file_name=sprintf('%s%s',output_file_dir,'W_DS_Estimator.mat');
+        save(file_name,'W_DS_Estimator');
+        
+        
+        count=count;
+        file_name=sprintf('%s%s',output_file_dir,'count.mat');
+        save(file_name,'count','-v7.3');
+
+        file_name=sprintf('%s%s',output_file_dir,'Time.mat');
+        save(file_name,'Time_*');
 
 
     end
