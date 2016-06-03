@@ -90,7 +90,7 @@ switch experiment_num
     case 24
         input_file_dir='../Input Data/Real Data/Real Label/';
         output_file_dir='../Output Data/Real Data/Real Label/';
-        total_repeat_num=10;begin_num=1;end_num=10;step_num = 100;count=zeros(2*end_num*step_num,total_repeat_num);
+        total_repeat_num=1;begin_num=1;end_num=10;step_num = 100;count=zeros(2*end_num*step_num,total_repeat_num);
         title_name='Twitter Topic(Real Data)';
         
     case 25%%total_repeat_num=1 needs about 10h
