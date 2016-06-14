@@ -100,7 +100,13 @@ function [  ] = plot_figures( experiment_num, plot_flag )
             title(title_name,'FontSize',16)
             xlabel('The number of noisy annotators','FontSize',16);
             ylabel('The test accuracy(%)','FontSize',16);
-            legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+            if plot_flag == 1
+                legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+            else
+                han(6,1)=plot(x_label, acc_MV_Probability,'--m+','LineWidth',linewidth,'MarkerFaceColor','m');
+                han(7,1)=plot(x_label, acc_DS_Estimator,':mx','LineWidth',linewidth,'MarkerFaceColor','m');
+                legend(han(1:7),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive','MV Probability','DS Estimator');
+            end
 
             figure();
             hold on;
@@ -117,7 +123,13 @@ function [  ] = plot_figures( experiment_num, plot_flag )
             title(title_name,'FontSize',16)
             xlabel('The number of noisy annotators','FontSize',16);
             ylabel('The AUC','FontSize',16);
-            legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');  
+            if plot_flag == 1
+                legend(han(1:5),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive');
+            else
+                han(6,1)=plot(x_label, acc_MV_Probability,'--m+','LineWidth',linewidth,'MarkerFaceColor','m');
+                han(7,1)=plot(x_label, acc_DS_Estimator,':mx','LineWidth',linewidth,'MarkerFaceColor','m');
+                legend(han(1:7),'Raykar''s Model','Kajino''s Model','Majority Voting','M3V','Cost-sensitive','MV Probability','DS Estimator');
+            end
         end
     else
         file_name=sprintf('%s%s',output_file_dir,'Time.mat');

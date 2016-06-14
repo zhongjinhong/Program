@@ -93,7 +93,7 @@ function [W,count]=LCM_old(X,Y,svm_para)
                 w0=-w0;
                 b=-b;
             end
-            predict_lable = sign( w0*X(1:n,:)' +b )';            
+            predict_lable = sign( w0*X(1:n,:)' + b )';            
             for i = 1:n
                 if(predict_lable(i,1)==Y(i,t))
                     count(i+(Y(i,t)+1)*n/2,1)=count(i+(Y(i,t)+1)*n/2,1)+Con(k,t);
